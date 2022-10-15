@@ -1,45 +1,29 @@
 import { Routes, Route, Link } from "react-router-dom";
+
+// Local file imports
 import Home from './screens/Home/Home'
+
+// MUI Imports
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from "@emotion/react";
+import { CssBaseline } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#080A0F'
+    },
+  }
+})
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-      </Routes>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Home />
+      </ThemeProvider>
     </div>
-  );
-}
-
-// function Home() {
-//   return (
-//     <>
-//       <main>
-//         <h2>Welcome to the homepage!</h2>
-//         <p>You can do this, I believe in you.</p>
-//       </main>
-//       <nav>
-//         <Link to="/about">About</Link>
-//       </nav>
-//     </>
-//   );
-// }
-
-function About() {
-  return (
-    <>
-      <main>
-        <h2>Who are we?</h2>
-        <p>
-          That feels like an existential question, don't you
-          think?
-        </p>
-      </main>
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
-    </>
   );
 }
 
