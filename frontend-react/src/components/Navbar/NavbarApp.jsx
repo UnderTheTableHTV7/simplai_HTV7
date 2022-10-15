@@ -17,26 +17,6 @@ const Navbar = () => {
         <Toolbar>
           <Typography sx={{fontWeight: 'bold'}} variant="h6" component="h1">simpl</Typography><Typography sx={{color: '#03D394', mb: 0.1}}>•</Typography><Typography sx={{fontWeight: 'bold'}} variant="h6" component="h1">ai</Typography>
           <Grid container justifyContent="flex-end">
-            <Link to="/app/get-data" style={{ textDecoration: 'none' }}>
-              <Button 
-                sx={{
-                    backgroundColor: 'white',
-                    color: 'black',
-                    textTransform: 'capitalize',
-                    fontWeight: 'bold',
-                    borderRadius: 5,
-                    px: 3, py: 1,
-                    m: 2,
-                    "&:hover":  {
-                        backgroundColor: '#F5F5F5',
-                    }
-                }}
-                variant="contained" 
-                endIcon={<TrendingFlatIcon/>}
-              >
-                App
-              </Button>
-            </Link>
           </Grid>
         </Toolbar>
       </AppBar>

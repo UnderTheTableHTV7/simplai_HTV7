@@ -1,7 +1,9 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Local file imports
 import Home from './screens/Home/Home'
+import About from './screens/About/About'
+import UploadPDF from "./screens/SimplifyPDF/UploadPDF/UploadPDF";
 
 // MUI Imports
 import { createTheme } from '@mui/material/styles';
@@ -21,7 +23,11 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/app/get-data" element={<UploadPDF />} />
+        </Routes>
       </ThemeProvider>
     </div>
   );
