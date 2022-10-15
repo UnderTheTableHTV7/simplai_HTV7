@@ -50,7 +50,7 @@ const Home = () => {
                 </Button>
               </Link>
 
-              <Link to="/app/get-data" style={{ textDecoration: 'none' }}>
+              <Link to="/app/user-config" style={{ textDecoration: 'none' }}>
                 <Button sx={{
                   color: 'white', 
                   textTransform: 'capitalize', 
