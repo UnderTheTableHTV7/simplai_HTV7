@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import { Routes, Route, Link } from "react-router-dom";
-import './App.css';
+import Home from './screens/Home/Home'
 
 function App() {
   return (
@@ -13,19 +12,19 @@ function App() {
   );
 }
 
-function Home() {
-  return (
-    <>
-      <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
-      </main>
-      <nav>
-        <Link to="/about">About</Link>
-      </nav>
-    </>
-  );
-}
+// function Home() {
+//   return (
+//     <>
+//       <main>
+//         <h2>Welcome to the homepage!</h2>
+//         <p>You can do this, I believe in you.</p>
+//       </main>
+//       <nav>
+//         <Link to="/about">About</Link>
+//       </nav>
+//     </>
+//   );
+// }
 
 function About() {
   return (
