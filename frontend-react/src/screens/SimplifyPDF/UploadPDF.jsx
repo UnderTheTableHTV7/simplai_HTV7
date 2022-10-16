@@ -43,7 +43,7 @@ class UploadPDF extends React.Component {
       return (
         <div>
             <Navbar/>
-            <TranslationBox innerText={this.translatedText} />
+            <TranslationBox innerText={this.state.translatedText} />
             <PDFViewer parent={this} url={this.state.fileRead}></PDFViewer>
         </div>
       )
