@@ -1,5 +1,6 @@
 import { Grid, Paper, Dialog, Typography } from '@mui/material';
 import React from 'react'
+import axios from 'axios'
 
 // Import local files.
 import Navbar from '../../components/Navbar/NavbarApp.jsx'
@@ -21,15 +22,21 @@ class UploadPDF extends React.Component {
 
     this.handleClose = this.handleClose.bind(this);
     this.handleFileSelect = this.handleFileSelect.bind(this);
-    this.handleFileRead = this.handleFileRead.bind(this);
+    this.handleFileRead = this.handleFileRead.bind(this); 
     this.fetchData = this.fetchData.bind(this);
   }
 
   async fetchData() {
     if (this.state.selectedText) {
       // Make the api call and set ranslatedtext
-      let res = await fetch("http://6750-2606-fa00-8a0-705-4ca8-63ce-b139-b11d.ngrok.io/simplify_nested/", { // Need host lol
-        method: 'POST'
+      let res = await fetch("http://api.bobloblaw.tech/simplify_nested/" , { // Need host lol
+        method: 'POST',
+        body: JSON.stringify({
+          input_text: this.state.selectedText.trim()
+        }),
+        headers: {
+          "Content-type": "application/json",
+        }
       })
 
       let resObj = await res.json();
@@ -37,6 +44,8 @@ class UploadPDF extends React.Component {
       this.setState({translatedText: resObj.simplified_text});
     }
   }
+
+  //curl -X 'POST' 'http://api.bobloblaw.tech/simplify_nested/?input_text=fr4fr4f' -H 'accept: application/json' -d ''
 
   render() {
     if (this.state.mode == 'display') {

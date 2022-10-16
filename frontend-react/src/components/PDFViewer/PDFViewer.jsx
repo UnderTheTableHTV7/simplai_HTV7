@@ -5,7 +5,7 @@ class PDFViewer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.stateUpdateTimeout = undefined;
+    this.lastMove = 0;
     this.parent = props.parent;
     this.bindedListener = this.selectionChangeHandler.bind(this);
 
@@ -14,8 +14,12 @@ class PDFViewer extends React.Component {
 
   async selectionChangeHandler(e) { // just update state lmao
     // we can do filtering here if we have to
-    this.parent.setState({selectedText: document.getSelection().toString(), e});
-    await this.parent.fetchData();
+    if (Date.now() - this.lastMove >= 500) {
+      this.parent.setState({selectedText: document.getSelection().toString(), e});
+      this.lastMove = Date.now();
+      await this.parent.fetchData();
+    }
+    
   }
 
   render() {

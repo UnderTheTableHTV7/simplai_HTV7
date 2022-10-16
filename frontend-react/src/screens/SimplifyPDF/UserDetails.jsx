@@ -38,7 +38,7 @@ const UserDetails = () => {
 
     const [isIn, setIsIn] = useState(In && delay === 0)
     const [checked, setChecked] = useState(true);
-    const [url, setUrl] = useState('/app/translate');
+    const [url, setUrl] = useState('/app/get-data');
 
    useEffect(() => {
       if (delay > 0) {
@@ -48,11 +48,7 @@ const UserDetails = () => {
 
    const handleChange = (event) => {
     setChecked(event.target.checked);
-    if (checked) {
-        setUrl("/app/get-data");
-    } else {
-        setUrl("/app/translate");
-    }
+    setUrl("/app/get-data");
   };
 
   return (
