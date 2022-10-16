@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 # from ./simplify import simplify_text
 from simplify import simplify_text
 from simplify_cohere import simplify_text_cohere
@@ -10,16 +10,20 @@ async def root():
     return "."
 
 @app.post("/simplify/")
-def simplify(input_text: str):
-    return {"simplified_text": simplify_text(input_text)}
+def simplify(request: Request):
+    data = request.json()
+    return {"simplified_text": simplify_text(data['input_text'])}
 
 @app.post("/simplify_cohere/")
-def simplify_cohere(input_text: str):
-    return {"simplified_text": simplify_text_cohere(input_text)}
+def simplify_cohere(request: Request):
+    data = request.json()
+    return {"simplified_text": simplify_text_cohere(data['input_text'])}
 
 
 @app.post("/simplify_nested/")
-def simplify_nested(input_text: str):
+def simplify_nested(request: Request):
+    data = request.json()
+    input_text = data['input_text']
     if len(input_text.split(' ')) > 100:
         return {"simplified_text": simplify_text_cohere(input_text)}
     else:
