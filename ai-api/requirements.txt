@@ -1,0 +1,11 @@
+wordfreq
+torch
+transformers
+tensorflow
+fastapi
+uvicorn[standard]
+gdown
+cohere
+py-dotenv
+nltk
+numpy
