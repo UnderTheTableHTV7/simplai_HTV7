@@ -1,3 +1,5 @@
+## simpl.ai
+
 ## 💡 Inspiration
 The objective of our application is to devise an effective and efficient written transmission optimization scheme, by converting esoteric text into an exoteric format.
 
