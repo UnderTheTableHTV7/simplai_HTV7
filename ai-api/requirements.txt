@@ -7,3 +7,5 @@ uvicorn[standard]
 gdown
 cohere
 py-dotenv
+nltk
+numpy
