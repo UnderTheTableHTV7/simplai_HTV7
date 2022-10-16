@@ -5,3 +5,5 @@ tensorflow
 fastapi
 uvicorn[standard]
 gdown
+cohere
+py-dotenv
