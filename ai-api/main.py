@@ -11,8 +11,7 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
-    access_control=False
+    allow_headers=["*"]
 )
 
 @app.get("/")
