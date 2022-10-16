@@ -4,3 +4,4 @@
 node_modules/
 dist/
 __pycache__/
+model_CWI_full.h5

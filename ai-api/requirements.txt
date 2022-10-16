@@ -1,0 +1,7 @@
+wordfreq
+torch
+transformers
+tensorflow
+fastapi
+uvicorn[standard]
+gdown
