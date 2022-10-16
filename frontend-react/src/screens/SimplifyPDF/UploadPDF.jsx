@@ -27,7 +27,7 @@ class UploadPDF extends React.Component {
   }
 
   async fetchData() {
-    if (this.state.selectedText && this.state.selectedText.length() <= 500) {
+    if (this.state.selectedText && this.state.selectedText.length <= 500) {
       // Make the api call and set ranslatedtext
       let res = await fetch("http://api.bobloblaw.tech/simplify_nested/" , { // Need host lol
         method: 'POST',
