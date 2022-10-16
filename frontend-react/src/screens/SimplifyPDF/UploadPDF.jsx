@@ -2,9 +2,9 @@ import { Grid, Paper, Dialog, Typography } from '@mui/material';
 import React from 'react'
 
 // Import local files.
-import Navbar from '../../../components/Navbar/NavbarApp'
-import PDFViewer from '../../../components/PDFViewer/PDFViewer';
-import TranslationBox from '../../../components/TranslationBox/TranslationBox';
+import Navbar from '../../components/Navbar/NavbarApp.jsx'
+import PDFViewer from '../../components/PDFViewer/PDFViewer';
+import TranslationBox from '../../components/TranslationBox/TranslationBox';
 
 class UploadPDF extends React.Component {
   constructor(props) {
