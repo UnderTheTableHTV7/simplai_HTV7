@@ -39,23 +39,23 @@ def simplify_nested(payload: dict = Body(...)):
 
 
 
-def init_webhooks(base_url):
-    # Update inbound traffic via APIs to use the public-facing ngrok URL
-    pass
+# def init_webhooks(base_url):
+#     # Update inbound traffic via APIs to use the public-facing ngrok URL
+#     pass
 
-# pyngrok should only ever be installed or initialized in a dev environment when this flag is set
-from pyngrok import ngrok
-import sys
-from fastapi.logger import logger
+# # pyngrok should only ever be installed or initialized in a dev environment when this flag is set
+# from pyngrok import ngrok
+# import sys
+# from fastapi.logger import logger
 
-# Get the dev server port (defaults to 8000 for Uvicorn, can be overridden with `--port`
-# when starting the server
-port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 8000
+# # Get the dev server port (defaults to 8000 for Uvicorn, can be overridden with `--port`
+# # when starting the server
+# port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 8000
 
-# Open a ngrok tunnel to the dev server
-public_url = ngrok.connect(port).public_url
-# logger.info("ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
-print(public_url)
-# Update any base URLs or webhooks to use the public ngrok URL
-# settings.BASE_URL = public_url
-init_webhooks(public_url)
+# # Open a ngrok tunnel to the dev server
+# public_url = ngrok.connect(port).public_url
+# # logger.info("ngrok tunnel \"{}\" -> \"http://127.0.0.1:{}\"".format(public_url, port))
+# print(public_url)
+# # Update any base URLs or webhooks to use the public ngrok URL
+# # settings.BASE_URL = public_url
+# init_webhooks(public_url)
