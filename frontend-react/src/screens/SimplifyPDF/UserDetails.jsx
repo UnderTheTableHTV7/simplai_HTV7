@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from "react-router-dom";
 
 // Local file imports
 import Navbar from '../../components/Navbar/NavbarApp'
@@ -37,6 +38,7 @@ const UserDetails = () => {
 
     const [isIn, setIsIn] = useState(In && delay === 0)
     const [checked, setChecked] = useState(true);
+    const [url, setUrl] = useState('/app/translate');
 
    useEffect(() => {
       if (delay > 0) {
@@ -46,6 +48,11 @@ const UserDetails = () => {
 
    const handleChange = (event) => {
     setChecked(event.target.checked);
+    if (checked) {
+        setUrl("/app/get-data");
+    } else {
+        setUrl("/app/translate");
+    }
   };
 
   return (
@@ -56,13 +63,13 @@ const UserDetails = () => {
         
     }}>
         <Navbar/>
-        <Grid container height="100%" direction="column" display="flex" justifyContent="center" align="center">
-            <Grid item>
+        <Grid container height="100%" direction="column" display="flex" justifyContent="center" align="center" >
+            <Grid item sx={{mb: 15}}>
                 <Typography sx={{color: '#03D394', fontWeight: 'bold'}} variant='h5'>Tell us about you.</Typography>
                 <Typography sx={{color: 'white', mb: 4}} variant='lead'>Please fill some basic details to get started.</Typography>
-
+                    
                 <Grid container direction="column" align="left" sx={{
-                    height: '550px', width: '70vw', background: 'gray', borderRadius: 5, 
+                    height: '455px', width: '70vw', background: 'gray', borderRadius: 5, 
                     background: '#202633',
                     p: 5, mt: 4,
                     color: 'white'
@@ -173,67 +180,9 @@ const UserDetails = () => {
                             :
                             <></>
                         }
-                        <Grid container direction="row">
-                            <Button 
-                                sx={{
-                                    backgroundColor: 'white',
-                                    color: 'black',
-                                    textTransform: 'capitalize',
-                                    fontWeight: 'bold',
-                                    borderRadius: 2,
-                                    px: 3, py: 1,
-                                    my: 2,
-                                    "&:hover":  {
-                                        backgroundColor: '#F5F5F5',
-                                    }
-                                }}
-                                variant="contained" 
-                                component="label"
-                            >
-
-                                Upload a File
-                                <input hidden accept="pdf/*" type="file" />
-
-                            </Button>
-                            <Typography sx={{my: 3, mx: 2}}>or</Typography>
-                            <TextField  id="outlined-basic" label="Enter Website URL:" variant="outlined" InputLabelProps={{
-                             style: { color: '#fff'}, 
-                             }} inputProps={{style: {color: 'white'}}} 
-                            sx={{
-                                my:2,
-                                width: '52.5vw',
-
-                            input: {
-                                color: 'white', 
-                                '&::placeholder': 
-                                    {
-                                        color: 'white',
-                                    }
-                                }, 
-                            '& label.Mui-focused': {
-                                color: 'white',
-                            },
-                            '& label.Mui': {
-                                color: 'white',
-                            },
-                            '& .MuiInput-underline:after': {
-                                borderBottomColor: 'white',
-                            },
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                  borderColor: 'white',
-                                  color: 'white'
-                                },
-                                '&:hover fieldset': {
-                                  borderColor: 'white',
-                                },
-                                '&.Mui-focused fieldset': {
-                                  borderColor: 'white',
-                                },
-                            },
-                        }}/>
-                        </Grid>
+                        
                         <Grid container alignItems='right'>
+                            <Link to={url} style={{ textDecoration: 'none' }}>
                             <Button 
                                 sx={{
                                     backgroundColor: '#9569EC',
@@ -249,10 +198,10 @@ const UserDetails = () => {
                                     }
                                 }}
                                 variant="contained" 
-                                
                             >
                                 Continue
                             </Button>
+                            </Link>
                         </Grid>
                         
                     </Grid>
