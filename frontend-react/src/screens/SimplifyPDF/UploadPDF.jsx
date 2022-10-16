@@ -15,7 +15,7 @@ class UploadPDF extends React.Component {
       selectedText: '', // PDFViewer updates state
       mode: 'upload',
       fileRead: '',
-      translatedText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoelectronic"
+      translatedText: "Select text to simplify"
     }
 
     this.fileReader = new FileReader();
@@ -27,7 +27,7 @@ class UploadPDF extends React.Component {
   }
 
   async fetchData() {
-    if (this.state.selectedText) {
+    if (this.state.selectedText && this.state.selectedText.length() <= 500) {
       // Make the api call and set ranslatedtext
       let res = await fetch("http://api.bobloblaw.tech/simplify_nested/" , { // Need host lol
         method: 'POST',
@@ -60,7 +60,7 @@ class UploadPDF extends React.Component {
       return (
         <Dialog open={true} onClose={this.handleClose}>
           <Paper sx={{padding: 10, textAlign: 'center'}}>
-            <Typography variant='h5'>Please select file to upload</Typography>
+            <Typography variant='h5'>Please select file to translate</Typography>
             <input type='file' accept='.pdf' onChange={this.handleFileSelect}/>
           </Paper>
         </Dialog>
