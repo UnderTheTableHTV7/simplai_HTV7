@@ -19,19 +19,19 @@ async def root():
     return "."
 
 @app.post("/simplify/")
-def simplify(request: Request):
-    data = request.json()
+async def simplify(request: Request):
+    data = await request.json()
     return {"simplified_text": simplify_text(data['input_text'])}
 
 @app.post("/simplify_cohere/")
-def simplify_cohere(request: Request):
-    data = request.json()
+async def simplify_cohere(request: Request):
+    data = await request.json()
     return {"simplified_text": simplify_text_cohere(data['input_text'])}
 
 
 @app.post("/simplify_nested/")
-def simplify_nested(request: Request):
-    data = request.json()
+async def simplify_nested(request: Request):
+    data = await request.json()
     input_text = data['input_text']
     if len(input_text.split(' ')) > 100:
         return {"simplified_text": simplify_text_cohere(input_text)}
