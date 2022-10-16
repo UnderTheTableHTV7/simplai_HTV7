@@ -15,6 +15,7 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+          
           <Typography sx={{fontWeight: 'bold'}} variant="h6" component="h1">simpl</Typography><Typography sx={{color: '#03D394', mb: 0.1}}>•</Typography><Typography sx={{fontWeight: 'bold'}} variant="h6" component="h1">ai</Typography>
           <Grid container justifyContent="flex-end">
           </Grid>
