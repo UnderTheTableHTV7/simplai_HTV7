@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/HTV7/static/css/main.fa4a6df6.css",
-    "main.js": "/HTV7/static/js/main.5a4da961.js",
+    "main.js": "/HTV7/static/js/main.ac699d51.js",
     "static/js/119.f444f7e6.chunk.js": "/HTV7/static/js/119.f444f7e6.chunk.js",
     "index.html": "/HTV7/index.html",
     "main.fa4a6df6.css.map": "/HTV7/static/css/main.fa4a6df6.css.map",
-    "main.5a4da961.js.map": "/HTV7/static/js/main.5a4da961.js.map",
+    "main.ac699d51.js.map": "/HTV7/static/js/main.ac699d51.js.map",
     "119.f444f7e6.chunk.js.map": "/HTV7/static/js/119.f444f7e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fa4a6df6.css",
-    "static/js/main.5a4da961.js"
+    "static/js/main.ac699d51.js"
   ]
 }
