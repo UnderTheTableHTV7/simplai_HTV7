@@ -1,25 +1,37 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Body
 # from ./simplify import simplify_text
 from simplify import simplify_text
 from simplify_cohere import simplify_text_cohere
+from fastapi.middleware.cors import CORSMiddleware
 
 app =  FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.get("/")
 async def root():
     return "."
 
 @app.post("/simplify/")
-def simplify(input_text: str):
+def simplify(payload: dict = Body(...)):
+    input_text = payload['input_text']
     return {"simplified_text": simplify_text(input_text)}
 
 @app.post("/simplify_cohere/")
-def simplify_cohere(input_text: str):
+def simplify_cohere(payload: dict = Body(...)):
+    input_text = payload['input_text']
     return {"simplified_text": simplify_text_cohere(input_text)}
 
 
 @app.post("/simplify_nested/")
-def simplify_nested(input_text: str):
+def simplify_nested(payload: dict = Body(...)):
+    input_text = payload['input_text']
     if len(input_text.split(' ')) > 100:
         return {"simplified_text": simplify_text_cohere(input_text)}
     else:
